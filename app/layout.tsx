@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Lato, K2D } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/share/Navbar";
 import Footer from "./components/share/Footer";
 
+// ডিফল্ট Geist ফন্টসমূহ
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -12,6 +13,20 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+// ১. Lato ফন্ট অ্যাড করা হলো (উইথ ওয়েট সাবসেট)
+const lato = Lato({
+  variable: "--font-lato",
+  subsets: ["latin"],
+  weight: ["400", "700"], // যেহেতু বাটনে এবং মেনুতে Bold (700) লাগবে
+});
+
+// ২. K2D ফন্ট অ্যাড করা হলো লোগোর জন্য
+const k2d = K2D({
+  variable: "--font-k2d",
+  subsets: ["latin"],
+  weight: ["700"], // লোগোটি Bold (700) ডিজাইনের
 });
 
 export const metadata: Metadata = {
@@ -27,11 +42,17 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`
+        ${geistSans.variable} 
+        ${geistMono.variable} 
+        ${lato.variable} 
+        ${k2d.variable} 
+        h-full antialiased
+      `}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col bg-[#111111]">
         <Navbar />
-        {children}
+        <main className="flex-grow">{children}</main>
         <Footer />
       </body>
     </html>

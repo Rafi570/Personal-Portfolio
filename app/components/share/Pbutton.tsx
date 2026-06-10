@@ -1,6 +1,5 @@
 import React, { ComponentType, ButtonHTMLAttributes } from 'react';
 
-// বাটনের প্রপসের জন্য টাইপ ডিফাইন করা হলো
 interface PbuttonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     text?: string;
     logo?: ComponentType<{ className?: string }>;
@@ -20,8 +19,8 @@ const Pbutton: React.FC<PbuttonProps> = ({
             className={`
                 /* Layout & Sizing */
                 inline-flex items-center justify-center
-                min-w-[141px] min-h-[43px]
-                py-[12px] px-[40px] gap-[10px]
+                min-w-35.25 min-h-10.75
+                py-3 px-10 gap-2.5
                 
                 /* Border & Shapes */
                 rounded-[8px] border-none outline-none
@@ -31,7 +30,7 @@ const Pbutton: React.FC<PbuttonProps> = ({
                 opacity-100 rotate-0
                 
                 /* Text Styles */
-                text-[#FFFFFF] font-['Lato',_sans-serif] font-bold text-[16px] 
+                text-[#FFFFFF] font-lato  text-[16px] 
                 leading-none tracking-[0.03em] text-justify
                 
                 /* Interactive States */
