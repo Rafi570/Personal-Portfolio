@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import Image from "next/image";
 import myImage from "../../../public/img/myphoto.png";
@@ -8,9 +6,9 @@ import Sbutton from "../share/Sbutton";
 
 const Banner = () => {
   return (
-    <div className="relative max-w-[1440px] mx-auto pt-24 pb-12 overflow-visible">
+    <div className="relative max-w-[1440px] mx-auto pt-12 md:pt-35 pb-12 overflow-hidden px-4 md:px-0">
       {/* p div */}
-      <div className="flex flex-col lg:flex-row items-center justify-between  gap-12 lg:gap-6">
+      <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-6">
         {/* first div (Left Section) */}
         <div className="relative z-20 flex-1">
           <div className="absolute -top-28 -left-20 pointer-events-none z-0">
@@ -55,26 +53,26 @@ const Banner = () => {
             </svg>
           </div>
 
-          <div className="text-white relative z-10">
-            <div className="flex flex-col select-none">
-              {/* ১. Hi I am */}
-              <p className="font-lato font-semibold text-[24px] leading-none tracking-[3%] text-[#707070] mb-2">
+          <div className=" relative z-10">
+            <div className="flex flex-col select-none text-center lg:text-left">
+              {/* Hi I am */}
+              <p className="font-lato font-semibold text-[16px] sm:text-[20px] md:text-[24px] leading-none tracking-[3%] text-[#707070] mb-2">
                 Hi I am
               </p>
 
-              {/* ২. Name (Hasan Rafi Ahmed) */}
-              <p className="font-lato font-bold text-[28px] leading-none tracking-[3%] text-[#959595] mb-2">
+              {/* Name */}
+              <p className="font-lato font-bold text-[20px] sm:text-[24px] md:text-[28px] leading-none tracking-[3%] text-[#959595] mb-2">
                 Hasan Rafi Ahmed
               </p>
 
-              {/* ৩. Full Stack Developer */}
-              <h1 className="font-lato font-black text-[70px] leading-[110%] tracking-[3%] bg-gradient-to-r from-[#984300] via-[#FD6F00] to-[#CA5900] bg-clip-text text-transparent">
+              {/* Full Stack Developer */}
+              <h1 className="font-lato font-black text-[36px] sm:text-[50px] md:text-[60px] lg:text-[70px] leading-[110%] tracking-[3%] bg-gradient-to-r from-[#984300] via-[#FD6F00] to-[#CA5900] bg-clip-text text-transparent">
                 Full Stack Developer
               </h1>
             </div>
 
             {/* Social Icons */}
-            <div className="flex gap-4 mt-6">
+            <div className="flex gap-3 md:gap-4 mt-6 justify-center lg:justify-start">
               <div className="cursor-pointer hover:opacity-80 transition-opacity">
                 <svg
                   width="40"
@@ -161,42 +159,47 @@ const Banner = () => {
             </div>
 
             {/* CTAs */}
-            <div className="flex gap-4 mt-6">
-              <Pbutton>Hire Me</Pbutton>
-              <Sbutton>Download CV</Sbutton>
+            <div className="flex gap-3 md:gap-4 mt-6 w-full sm:w-auto">
+              <div className="flex-1 sm:flex-none">
+                <Pbutton className="w-full">Hire Me</Pbutton>
+              </div>
+
+              <div className="flex-1 sm:flex-none">
+                <Sbutton className="w-full">Download CV</Sbutton>
+              </div>
             </div>
 
             {/* Figma-Counter Card */}
             <div
               style={{ background: "#FFFFFF0A" }}
-              className="flex items-center gap-[30px] w-full max-w-[534px] min-h-[125px] p-6 rounded-[8px] backdrop-blur-sm border border-gray-800/40 select-none mt-12"
+              className="flex items-center justify-between w-full max-w-[534px] min-h-[94px] md:min-h-[125px] p-3 md:p-6 rounded-[8px] backdrop-blur-sm border border-gray-800/40 select-none mt-12"
             >
-              {/* ১. Experience */}
-              <div className="w-[150px] h-[77px] pr-[30px] flex flex-col justify-center gap-3 border-r border-[#959595]">
-                <h3 className="font-lato font-extrabold text-[24px] leading-none tracking-[3%] text-[#FD6F00]">
+              {/* Experience */}
+              <div className="flex-1 min-w-0 h-[77px] px-2 md:pr-[30px] flex flex-col justify-center gap-2 md:gap-3 border-r border-[#959595]">
+                <h3 className="font-lato font-extrabold text-[18px] md:text-[24px] leading-none tracking-[3%] text-[#FD6F00]">
                   5+
                 </h3>
-                <p className="font-lato font-medium text-xs text-white/90 uppercase tracking-wider">
+                <p className="font-lato font-medium text-[10px] md:text-xs text-white/90">
                   Experiences
                 </p>
               </div>
 
-              {/* ২. Project Done */}
-              <div className="w-[150px] h-[77px] pr-[30px] flex flex-col justify-center gap-3 border-r border-[#959595]">
-                <h3 className="font-lato font-extrabold text-[24px] leading-none tracking-[3%] text-[#FD6F00]">
+              {/* Project Done */}
+              <div className="flex-1 min-w-0 h-[77px] px-2 md:pr-[30px] flex flex-col justify-center gap-2 md:gap-3 border-r border-[#959595]">
+                <h3 className="font-lato font-extrabold text-[18px] md:text-[24px] leading-none tracking-[3%] text-[#FD6F00]">
                   20+
                 </h3>
-                <p className="font-lato font-medium text-xs text-[#959595] uppercase tracking-wider">
-                  Project Done
+                <p className="font-lato font-medium text-[10px] md:text-xs text-[#959595]">
+                  Project done
                 </p>
               </div>
 
-              {/* ৩. Happy Clients */}
-              <div className="h-[77px] flex flex-col justify-center gap-3">
-                <h3 className="font-lato font-extrabold text-[24px] leading-none tracking-[3%] text-[#FD6F00]">
+              {/* Happy Clients */}
+              <div className="flex-1 min-w-0 h-[77px] px-2 flex flex-col justify-center gap-2 md:gap-3">
+                <h3 className="font-lato font-extrabold text-[18px] md:text-[24px] leading-none tracking-[3%] text-[#FD6F00]">
                   80+
                 </h3>
-                <p className="font-lato font-medium text-xs text-[#959595] uppercase tracking-wider">
+                <p className="font-lato font-medium text-[10px] md:text-xs text-[#959595]">
                   Happy Clients
                 </p>
               </div>
@@ -205,24 +208,37 @@ const Banner = () => {
         </div>
 
         {/* 2nd div (Right Profile Section - Fixed cut-off issue) */}
-        <div className="flex-1 mt-10 flex justify-center lg:justify-end items-center relative z-10">
-          <div className="relative flex items-center justify-center w-[618px] h-[618px] select-none">
+        <div className="flex-1 mt-10 lg:mt-0 flex justify-center lg:justify-end items-center relative z-10">
+          <div
+            className="relative flex items-center justify-center select-none
+                  w-[280px] h-[280px]
+                  sm:w-[360px] sm:h-[360px]
+                  md:w-[460px] md:h-[460px]
+                  lg:w-[618px] lg:h-[600px]"
+          >
             <div
               style={{
                 boxShadow: "0px 4px 4px 0px #00000040",
               }}
-              className="absolute w-[618px] h-[618px] rounded-full bg-[#FFFFFF0A] z-0"
+              className="absolute inset-0 rounded-full bg-[#FFFFFF0A] z-0"
             />
 
-            {/* ২. প্রোফাইল ইমেজ */}
-            <div className="absolute z-10 bottom-0 pointer-events-none">
+            {/* Profile Image */}
+            <div className="absolute bottom-0 z-10 pointer-events-none">
               <Image
                 src={myImage}
                 alt="Mahmood Fazile Profile"
                 width={500}
                 height={550}
                 priority
-                className="object-contain"
+                className="
+          object-contain
+          w-[220px]
+          sm:w-[280px]
+          md:w-[380px]
+          lg:w-[500px]
+          h-auto
+        "
               />
             </div>
           </div>
