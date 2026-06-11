@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
-import Pbutton from './Pbutton'; // তোমার প্রজেক্টের পাথ অনুযায়ী ইমপোর্ট করবে
+import Pbutton from './Pbutton'; // তোমার প্রজেক্টের পাথ অনুযায়ী ইমপোর্ট করবে
 
 const Navbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -15,7 +15,9 @@ const Navbar: React.FC = () => {
     ];
 
     return (
-        <nav className="w-full bg-[#111111] text-[#FFFFFF] relative z-50 px-4 md:px-12 lg:px-20 py-4">
+        // এখানে fixed এর বদলে sticky top-0 left-0 ব্যবহার করা হয়েছে
+        // এতে করে ব্যানার সেকশন আর ওপরে উঠে যাবে না
+        <nav className="sticky top-0 left-0 w-full bg-[#111111] text-[#FFFFFF] z-50 px-4 md:px-12 lg:px-20 py-4 shadow-md">
             <div className="max-w-[1440px] mx-auto flex items-center justify-between">
                 
                 {/* --- LOGO SECTION --- */}
@@ -59,7 +61,7 @@ const Navbar: React.FC = () => {
                     <Pbutton text="Hire Me" />
                 </div>
 
-                {/* --- MOBILE HAMBURGER BUTTON (তোমার দেওয়া SVG আইকন) --- */}
+                {/* --- MOBILE HAMBURGER BUTTON --- */}
                 <div className="lg:hidden flex items-center">
                     <button 
                         onClick={() => setIsOpen(!isOpen)}
@@ -67,12 +69,10 @@ const Navbar: React.FC = () => {
                         aria-label="Toggle Menu"
                     >
                         {isOpen ? (
-                            // ক্রসের (X) জন্য একটি সিম্পল কাস্টম SVG বা আইকন
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M18 6L6 18M6 6l12 12" stroke="#FD6F00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
                         ) : (
-                            // তোমার প্রোভাইড করা ৩-ডট/লাইন বার SVG আইকন
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M14 12H3" stroke="#959595" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                                 <path d="M21 6H3" stroke="#959595" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -109,7 +109,6 @@ const Navbar: React.FC = () => {
                             {link.name}
                         </a>
                     ))}
-                    {/* মোবাইল স্ক্রিনের জন্য Hire Me বাটন */}
                     <div className="pt-2">
                         <Pbutton text="Hire Me" onClick={() => setIsOpen(false)} />
                     </div>

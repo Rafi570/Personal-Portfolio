@@ -78,7 +78,6 @@ const Footer: React.FC = () => {
 
                 {/* --- VERTICAL CONTACT & MAIL ROW (Figma কাস্টমাইজড) --- */}
                 <div 
-                    style={{ angle: '0deg' }}
                     className="
                         /* রিকোয়ারমেন্ট অনুযায়ী সর্বোচ্চ উইডথ ও প্যাডিং */
                         w-full max-w-[593px] min-h-[35px] opacity-100
