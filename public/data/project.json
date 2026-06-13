@@ -1,0 +1,184 @@
+[
+  {
+    "id": 1,
+    "title": "Zap-Shift-Delivery",
+    "category": "FULLSTACK",
+    "description": "A complete MERN-based delivery, shift & order management system built for small to mid-size businesses. Zap-Shift helps admins create delivery tasks, assign riders, manage shifts, and track real-time status updates. The platform includes dynamic role-based dashboards, optimized routing, and secure authentication. It focuses on reducing delivery delays and improving workforce management efficiency.",
+    "features": [
+      "📦 Real-time delivery and task tracking",
+      "👤 Role-based dashboards (Admin, Rider, User)",
+      "🕒 Shift scheduling with availability management",
+      "📍 Live status updates for each delivery",
+      "📊 Admin analytics panel with charts",
+      "🔐 JWT Authentication + Secure API Architecture",
+      "⚡ Responsive UI with animated transitions",
+      "🌙 Dark mode optimized UI"
+    ],
+    "technologies": [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Tailwind CSS",
+      "Framer Motion",
+      "JWT",
+      "Axios"
+    ],
+    "challenges_solved": [
+      "Optimized database queries to reduce delivery load time",
+      "Managed complex state for real-time order updates",
+      "Designed scalable backend structure for future expansion"
+    ],
+    "role": "Fullstack Developer",
+    "image": "/img/image.png",
+    "liveLink": "https://module--49.web.app/",
+    "githubLink": "https://github.com/Rafi570/Zap-Shift-Client.git"
+  },
+  {
+    "id": 2,
+    "title": "Local-Food-Lovers-Network",
+    "category": "FULLSTACK",
+    "description": "A community-driven food review and discovery platform designed for local food lovers. Users can explore restaurants, post their own reviews, rate dishes, and interact with other food enthusiasts. The system features user profiles, review history, and restaurant ranking logic. Built as a scalable MERN project focusing on user experience and clean UI.",
+    "features": [
+      "⭐ Users can add, edit, and delete reviews",
+      "🍽 Restaurant discovery with detailed pages",
+      "📸 Upload images of dishes and foods",
+      "🔍 Keyword & category-based restaurant search",
+      "❤️ Save favorite restaurants",
+      "👥 User profile dashboards",
+      "📝 Smart review sorting (Most helpful, Trending, Recent)",
+      "⚡ Fully responsive modern UI"
+    ],
+    "technologies": [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Tailwind CSS",
+      "Cloudinary",
+      "JWT"
+    ],
+    "challenges_solved": [
+      "Implemented optimized search & sorting algorithm for reviews",
+      "Developed media upload system using Cloudinary",
+      "Improved site performance using lazy loading"
+    ],
+    "role": "Fullstack Developer",
+    "image": "https://i.ibb.co/0VD3Y9v4/Screenshot-from-2025-12-05-03-31-29.png",
+    "liveLink": "https://gilded-naiad-40d78f.netlify.app/",
+    "githubLink": "https://github.com/Rafi570/Local-Food-Lovers-Network-client.git"
+  },
+  {
+    "id": 3,
+    "title": "Scholarship Management System",
+    "category": "FULLSTACK",
+    "description": "A comprehensive Scholarship Management Platform designed to facilitate students in discovering and applying for scholarships, while providing Admin and Moderator users with tools to manage applications and content.",
+    "features": [
+      "🔍 Advanced search and filtering (Category, Degree, Location)",
+      "💳 Secure Stripe payment integration for application fees",
+      "👥 Role-based dashboards (Admin, Moderator, and Student)",
+      "📊 Admin analytics for tracking users, fees, and applications",
+      "📝 Review and rating system for each scholarship",
+      "🔄 Real-time application status tracking (Pending, Processing, Completed)",
+      "🔒 Secure JWT-based authentication and role authorization",
+      "📱 Fully responsive UI with loading skeletons for better UX"
+    ],
+    "technologies": [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Stripe",
+      "Firebase",
+      "Tailwind CSS",
+      "JWT"
+    ],
+    "challenges_solved": [
+      "Implemented a complex multi-role dashboard with conditional routing",
+      "Integrated secure payment processing and handled success/failure states",
+      "Optimized filtering logic for large scholarship datasets"
+    ],
+    "role": "Fullstack Developer",
+    "image": "/img/image.png",
+    "liveLink": "https://scholarship-management-s-8675e.web.app",
+    "githubLink": "https://github.com/Rafi570/Scholarship-Management-System-client.git"
+  },
+  {
+    "id": 4,
+    "title": "Your Real Landing Page Title",
+    "category": "LANDING PAGE",
+    "description": "Here goes the actual description for your exclusive landing page project. Make sure to distinct it from your MERN stacks.",
+    "features": [
+      "⚡ High-converting layout structure",
+      "🎨 Premium Pixel-perfect UI design"
+    ],
+    "technologies": [
+      "Next.js",
+      "Tailwind CSS",
+      "Framer Motion"
+    ],
+    "challenges_solved": [
+      "Ensured smooth micro-interactions throughout the page"
+    ],
+    "role": "Frontend Developer",
+    "image": "/img/image.png",
+    "liveLink": "https://your-landing-page.vercel.app/",
+    "githubLink": "https://github.com/Rafi570/landing-page-repo"
+  },
+  {
+    "id": 5,
+    "title": "Seoul Mirage – Luxury Skincare",
+    "category": "FRONTEND",
+    "description": "A premium, pixel-perfect e-commerce frontend concept for a luxury skincare brand. Features smooth page transitions, high-end typography, glassmorphic design elements, and interactive product grids optimized for conversions.",
+    "features": [
+      "✨ Premium luxury aesthetics with glassmorphism effects",
+      "🛍️ Interactive cart drawer with local state management",
+      "📱 Fully responsive grid optimized for mobile-first shoppers",
+      "🎭 Smooth micro-interactions and scroll-triggered animations",
+      "🔍 Advanced product filter by skin type and concerns"
+    ],
+    "technologies": [
+      "Next.js",
+      "React.js",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Lucide Icons"
+    ],
+    "challenges_solved": [
+      "Maintained crisp pixel-perfect layout alignment across all custom screens",
+      "Optimized large image loading utilizing Next.js Image component",
+      "Created physics-based fluid animations using Framer Motion"
+    ],
+    "role": "Frontend Developer",
+    "image": "/img/image.png",
+    "liveLink": "https://seoul-sage.vercel.app/",
+    "githubLink": "https://github.com/Rafi570/seoul-mirage-frontend"
+  },
+  {
+    "id": 6,
+    "title": "DevFixter Agency Landing Page",
+    "category": "FRONTEND",
+    "description": "A modern, dark-themed SaaS and agency landing page designed to convert visitors into clients. It showcases tech stacks, services, dynamic client testimonials, and a custom interactive pricing calculator.",
+    "features": [
+      "🌙 Fully optimized premium dark-mode UI",
+      "📈 Interactive pricing matrix and subscription toggles",
+      "🚀 Optimized for Core Web Vitals with near-perfect Lighthouse score",
+      "📨 Dynamic floating contact form with client-side validation",
+      "⚡ Superfast loading with static asset optimization"
+    ],
+    "technologies": [
+      "React.js",
+      "Tailwind CSS",
+      "Framer Motion",
+      "TypeScript"
+    ],
+    "challenges_solved": [
+      "Achieved seamless 60fps animations for continuous client logo tickers",
+      "Configured global TypeScript interfaces for strict type-safe UI components"
+    ],
+    "role": "Frontend Developer",
+    "image": "/img/image.png",
+    "liveLink": "https://devfixter-landing.vercel.app/",
+    "githubLink": "https://github.com/Rafi570/devfixter-agency-landing"
+  }
+]
