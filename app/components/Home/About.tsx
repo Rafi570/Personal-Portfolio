@@ -164,7 +164,7 @@ const About = () => {
 
   return (
     <section className="bg-[#FEFEFE] dark:bg-[#121212] py-5 md:py-20 px-4 md:px-8 font-lato overflow-hidden">
-      <div className="max-w-[1298px] mx-auto flex flex-col items-center">
+      <div className="max-w-[1440px] mx-auto flex flex-col items-center">
         {/* ── Section Header ── */}
         <div className="flex flex-col items-center text-center  md:mb-6 w-full">
           <h2 className="text-[28px] sm:text-[34px] md:text-[40px] font-bold text-[#1E1E1E] dark:text-white leading-none tracking-[0.03em] mb-3 md:mb-4">
