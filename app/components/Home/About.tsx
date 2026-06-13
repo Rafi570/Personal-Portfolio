@@ -167,9 +167,10 @@ const About = () => {
       <div className="max-w-[1440px] mx-auto flex flex-col items-center">
         {/* ── Section Header ── */}
         <div className="flex flex-col items-center text-center  md:mb-6 w-full">
-          <h2 className="text-[28px] sm:text-[34px] md:text-[40px] font-bold text-[#1E1E1E] dark:text-white leading-none tracking-[0.03em] mb-3 md:mb-4">
+          <h2 className="text-[28px] sm:text-[34px] md:text-[40px] font-bold text-[#1E1E1E] dark:text-white leading-none tracking-[0.03em]">
             About Me
           </h2>
+                    <div className="w-20 h-[4px] bg-[linear-gradient(94.36deg,#FD6F00_3.1%,#E46400_94.54%)] mt-3 mb-4 rounded-full"></div>
           <p className="font-lato font-medium text-[14px] sm:text-[16px] md:text-[20px] text-[#707070] dark:text-[#A0A0A0] leading-[1.6] tracking-[0.03em] text-center capitalize max-w-xl">
             User Interface And User Experience And Also Video Editing
           </p>
