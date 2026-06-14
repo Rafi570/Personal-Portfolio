@@ -154,7 +154,7 @@ const ProjectCard = ({ project, onClick }: { project: Project; onClick: () => vo
   return (
     <div
       onClick={onClick}
-      className="relative rounded-2xl overflow-hidden cursor-pointer group bg-[#1E1E1E] border border-[#2A2A2A] transition-transform duration-300 hover:scale-[1.02]"
+      className="relative rounded-xl overflow-hidden cursor-pointer group bg-[#1E1E1E] border border-[#2A2A2A] transition-transform duration-300 hover:scale-[1.02]"
       style={{ aspectRatio: "4/3" }}
     >
       <Image
@@ -215,7 +215,7 @@ const ProjectDetailsModal = ({
         animate={{ y: 0, scale: 1, opacity: 1 }}
         exit={{ y: 40, scale: 0.98, opacity: 0 }}
         transition={{ type: "spring", damping: 30, stiffness: 260 }}
-        className="relative w-full max-w-[1150px] rounded-2xl overflow-hidden shadow-2xl bg-[#0F0F11] text-white border border-[#222225] flex flex-col md:flex-row text-left"
+        className="relative w-full max-w-[1150px] rounded-xl overflow-hidden shadow-2xl bg-[#0F0F11] text-white border border-[#222225] flex flex-col md:flex-row text-left"
         style={{ maxHeight: "92vh" }}
       >
         {/* Close button */}
