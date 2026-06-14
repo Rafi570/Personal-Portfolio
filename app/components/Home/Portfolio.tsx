@@ -209,15 +209,15 @@ const ProjectDetailsModal = ({
       onClick={(e) => e.target === e.currentTarget && onClose()}
       className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-6 bg-black/85 backdrop-blur-md overflow-y-auto"
     >
-      <motion.div
-        key={project.id}
-        initial={{ y: 40, scale: 0.98, opacity: 0 }}
-        animate={{ y: 0, scale: 1, opacity: 1 }}
-        exit={{ y: 40, scale: 0.98, opacity: 0 }}
-        transition={{ type: "spring", damping: 30, stiffness: 260 }}
-        className="relative w-full max-w-[1150px] rounded-xl overflow-hidden shadow-2xl bg-[#0F0F11] text-white border border-[#222225] flex flex-col md:flex-row text-left"
-        style={{ maxHeight: "92vh" }}
-      >
+<motion.div
+  key={project.id}
+  initial={{ y: 40, scale: 0.98, opacity: 0 }}
+  animate={{ y: 0, scale: 1, opacity: 1 }}
+  exit={{ y: 40, scale: 0.98, opacity: 0 }}
+  transition={{ type: "spring", damping: 30, stiffness: 260 }}
+  // ✅ দুটি className প্রোপার্টির পরিবর্তে সব ক্লাসকে একসাথে একটি মাত্র className এর ভেতর নিয়ে আসা হয়েছে
+  className="relative w-full max-w-[1150px] rounded-xl shadow-2xl bg-[#0F0F11] text-white border border-[#222225] flex flex-col md:flex-row text-left overflow-y-auto md:overflow-hidden max-h-[92vh] max-md:max-h-none max-md:my-auto"
+>
         {/* Close button */}
         <button
           onClick={onClose}
@@ -230,7 +230,8 @@ const ProjectDetailsModal = ({
         </button>
 
         {/* ── LEFT: Image Showcase, Expanded Impact & Fixed Buttons ── */}
-<div className="w-full md:w-[48%] bg-[#09090B] flex flex-col border-b md:border-b-0 md:border-r border-[#222225] overflow-y-auto" style={{ maxHeight: "92vh" }}>
+        {/* ✅ মোবাইলে overflow-y-visible এবং max-h-none করা হয়েছে যেন ডান সেকশনের সাথে একসাথে স্ক্রোল হয় */}
+        <div className="w-full md:w-[48%] bg-[#09090B] flex flex-col border-b md:border-b-0 md:border-r border-[#222225] overflow-y-visible md:overflow-y-auto md:max-h-[92vh]">
 
           <div>
             {/* Main image */}
@@ -307,7 +308,7 @@ const ProjectDetailsModal = ({
               </div>
             )}
 
-            {/* Impact stats (কার্ডগুলোর হাইট এবং ভেতরের স্পেসিং বাড়ানো হয়েছে) */}
+            {/* Impact stats (কার্ডগুলোর হাইট এবং ভেতরের স্পেসিং বাড়ানো হয়েছে) */}
             {project.impact_stats && project.impact_stats.length > 0 && (
               <div className="px-5 mt-4">
                 <h4 className="text-[11px] font-bold text-[#FD6F00] uppercase tracking-widest mb-3">
@@ -362,10 +363,8 @@ const ProjectDetailsModal = ({
         </div>
 
         {/* ── RIGHT: Info & Case Study ── */}
-        <div
-          className="w-full md:w-[52%] p-6 md:p-8 overflow-y-auto flex flex-col bg-[#0F0F11]"
-          style={{ maxHeight: "92vh" }}
-        >
+        {/* ✅ মোবাইলে overflow-y-visible এবং max-h-none করা হয়েছে যেন পুরো কন্টেন্ট নিচে নিচে নেমে স্ক্রোল করা যায় */}
+        <div className="w-full md:w-[52%] p-6 md:p-8 overflow-y-visible md:overflow-y-auto flex flex-col bg-[#0F0F11] md:max-h-[92vh]">
           <div className="flex-1">
             {/* Category + year */}
             <div className="flex items-center gap-2.5 mb-3">
