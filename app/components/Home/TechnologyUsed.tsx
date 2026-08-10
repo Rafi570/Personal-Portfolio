@@ -1,4 +1,7 @@
+"use client";
+
 import React from 'react';
+import { motion, type Variants } from 'framer-motion';
 import { 
     SiNextdotjs, SiMongodb, SiReact, SiExpress, SiNodedotjs, 
     SiGithub, SiGit, SiCplusplus, SiPython, SiTypescript, 
@@ -28,12 +31,38 @@ const technologies = [
     { name: 'Python', icon: SiPython, color: 'hover:text-[#3776AB]' },
 ];
 
+// grid card gula ekta pore ekta ashbe (stagger)
+const gridVariants: Variants = {
+    hidden: {},
+    show: {
+        transition: {
+            staggerChildren: 0.06,
+        },
+    },
+};
+
+const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 24, scale: 0.9 },
+    show: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: { duration: 0.4, ease: 'easeOut' },
+    },
+};
+
 const TechnologyUsed = () => {
     return (
         <section className="py-16 px-4 max-w-6xl mx-auto font-lato">
             
-            {/* সেকশন হেডার কন্টেইনার (flex ও items-center দিয়ে সবকিছু সেন্টারে আনা হয়েছে) */}
-            <div className="flex flex-col items-center text-center mb-12 w-full">
+            {/* সেকশন হেডার কন্টেইনার (flex ও items-center দিয়ে সবকিছু সেন্টারে আনা হয়েছে) */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.6 }}
+                transition={{ duration: 0.5 }}
+                className="flex flex-col items-center text-center mb-12 w-full"
+            >
                 
                 {/* রেসপন্সিভ হেডিং */}
                 <h2 className="text-[28px] sm:text-[34px] md:text-[40px] font-bold text-[#1E1E1E] dark:text-white leading-none tracking-[0.03em]">
@@ -41,21 +70,34 @@ const TechnologyUsed = () => {
                 </h2>
                 
                 {/* আপনার বাটনের গ্রেডিয়েন্টের সাথে মিল রেখে নিচের আন্ডারলাইনটি */}
-                <div className="w-20 h-[4px] bg-[linear-gradient(94.36deg,#FD6F00_3.1%,#E46400_94.54%)] mt-3 mb-4 rounded-full"></div>
+                <motion.div
+                    initial={{ width: 0 }}
+                    whileInView={{ width: 80 }}
+                    viewport={{ once: false }}
+                    transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+                    className="h-[4px] bg-[linear-gradient(94.36deg,#FD6F00_3.1%,#E46400_94.54%)] mt-3 mb-4 rounded-full"
+                ></motion.div>
                 
-                {/* রেসপন্সিভ প্যারাগ্রাফ (text-justify বাদ দিয়ে text-center ফিক্সড করা হয়েছে) */}
+                {/* রেসপন্সিভ প্যারাগ্রাফ (text-justify বাদ দিয়ে text-center ফিক্সড করা হয়েছে) */}
                 <p className="font-lato font-medium text-[15px] sm:text-[17px] md:text-[20px] text-[#707070] dark:text-[#A0A0A0] leading-[1.6] tracking-[0.03em] text-center max-w-3xl px-2">
                    My core tech stack for building scalable, high-performance web applications and seamless digital experiences.
                 </p>
-            </div>
+            </motion.div>
 
             {/* টেকনোলজি গ্রিড লেআউট */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
+            <motion.div
+                variants={gridVariants}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: false, amount: 0.2 }}
+                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6"
+            >
                 {technologies.map((tech, index) => {
                     const IconComponent = tech.icon;
                     return (
-                        <div
+                        <motion.div
                             key={index}
+                            variants={cardVariants}
                             className={`
                                 flex flex-col items-center justify-center p-6
                                 bg-white dark:bg-[#1E1E1E] 
@@ -78,10 +120,10 @@ const TechnologyUsed = () => {
                             <span className="text-sm md:text-base font-medium font-lato tracking-[0.02em]">
                                 {tech.name}
                             </span>
-                        </div>
+                        </motion.div>
                     );
                 })}
-            </div>
+            </motion.div>
         </section>
     );
 };

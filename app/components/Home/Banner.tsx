@@ -1,8 +1,49 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import { motion, type Variants } from "framer-motion";
 import myImage from "../../../public/img/myphoto.png";
 import Pbutton from "../share/Pbutton";
 import Sbutton from "../share/Sbutton";
+
+// text block gula ekta pore ekta ashbe (stagger)
+const textContainerVariants: Variants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 24 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const iconContainerVariants: Variants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const iconPop: Variants = {
+  hidden: { opacity: 0, scale: 0.6 },
+  show: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.4, ease: "easeOut" },
+  },
+};
 
 const Banner = () => {
   return (
@@ -11,7 +52,13 @@ const Banner = () => {
       <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-6">
         {/* first div (Left Section) */}
         <div className="relative z-20 flex-1">
-          <div className="absolute -top-28 -left-20 pointer-events-none z-0">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="absolute -top-28 -left-20 pointer-events-none z-0"
+          >
             <svg
               width="748"
               height="677"
@@ -51,29 +98,53 @@ const Banner = () => {
                 </filter>
               </defs>
             </svg>
-          </div>
+          </motion.div>
 
           <div className=" relative z-10">
-            <div className="flex flex-col select-none text-center lg:text-left">
+            <motion.div
+              variants={textContainerVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.5 }}
+              className="flex flex-col select-none text-center lg:text-left"
+            >
               {/* Hi I am */}
-              <p className="font-lato font-semibold text-[16px] sm:text-[20px] md:text-[24px] leading-none tracking-[3%] text-[#707070] mb-2">
+              <motion.p
+                variants={fadeUp}
+                className="font-lato font-semibold text-[16px] sm:text-[20px] md:text-[24px] leading-none tracking-[3%] text-[#707070] mb-2"
+              >
                 Hi I am
-              </p>
+              </motion.p>
 
               {/* Name */}
-              <p className="font-lato font-bold text-[20px] sm:text-[24px] md:text-[28px] leading-none tracking-[3%] text-[#959595] mb-2">
+              <motion.p
+                variants={fadeUp}
+                className="font-lato font-bold text-[20px] sm:text-[24px] md:text-[28px] leading-none tracking-[3%] text-[#959595] mb-2"
+              >
                 Hasan Rafi Ahmed
-              </p>
+              </motion.p>
 
               {/* Full Stack Developer */}
-              <h1 className="font-lato font-black text-[36px] sm:text-[50px] md:text-[60px] lg:text-[70px] leading-[110%] tracking-[3%] bg-gradient-to-r from-[#984300] via-[#FD6F00] to-[#CA5900] bg-clip-text text-transparent">
+              <motion.h1
+                variants={fadeUp}
+                className="font-lato font-black text-[36px] sm:text-[50px] md:text-[60px] lg:text-[70px] leading-[110%] tracking-[3%] bg-gradient-to-r from-[#984300] via-[#FD6F00] to-[#CA5900] bg-clip-text text-transparent"
+              >
                 Full Stack Developer
-              </h1>
-            </div>
+              </motion.h1>
+            </motion.div>
 
             {/* Social Icons */}
-            <div className="flex gap-3 md:gap-4 mt-6 justify-center lg:justify-start">
-              <div className="cursor-pointer hover:opacity-80 transition-opacity">
+            <motion.div
+              variants={iconContainerVariants}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: false, amount: 0.5 }}
+              className="flex gap-3 md:gap-4 mt-6 justify-center lg:justify-start"
+            >
+              <motion.div
+                variants={iconPop}
+                className="cursor-pointer hover:opacity-80 transition-opacity"
+              >
                 <svg
                   width="40"
                   height="40"
@@ -95,8 +166,11 @@ const Banner = () => {
                     fill="#BABABA"
                   />
                 </svg>
-              </div>
-              <div className="cursor-pointer hover:opacity-80 transition-opacity">
+              </motion.div>
+              <motion.div
+                variants={iconPop}
+                className="cursor-pointer hover:opacity-80 transition-opacity"
+              >
                 <svg
                   width="40"
                   height="40"
@@ -130,8 +204,11 @@ const Banner = () => {
                     </clipPath>
                   </defs>
                 </svg>
-              </div>
-              <div className="cursor-pointer hover:opacity-80 transition-opacity">
+              </motion.div>
+              <motion.div
+                variants={iconPop}
+                className="cursor-pointer hover:opacity-80 transition-opacity"
+              >
                 <svg
                   width="40"
                   height="40"
@@ -155,11 +232,17 @@ const Banner = () => {
                     fill="#BABABA"
                   />
                 </svg>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* CTAs */}
-            <div className="flex gap-3 md:gap-4 mt-6 w-full sm:w-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.5 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+              className="flex gap-3 md:gap-4 mt-6 w-full sm:w-auto"
+            >
               <div className="flex-1 sm:flex-none">
                 <Pbutton className="w-full">Hire Me</Pbutton>
               </div>
@@ -167,10 +250,14 @@ const Banner = () => {
               <div className="flex-1 sm:flex-none">
                 <Sbutton className="w-full">Download CV</Sbutton>
               </div>
-            </div>
+            </motion.div>
 
             {/* Figma-Counter Card */}
-            <div
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.5 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.55 }}
               style={{ background: "#FFFFFF0A" }}
               className="flex items-center justify-between w-full max-w-[534px] min-h-[94px] md:min-h-[125px] p-3 md:p-6 rounded-[8px] backdrop-blur-sm border border-gray-800/40 select-none mt-12"
             >
@@ -203,12 +290,18 @@ const Banner = () => {
                   Happy Clients
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
 
         {/* 2nd div (Right Profile Section - Fixed cut-off issue) */}
-        <div className="flex-1 mt-10 lg:mt-0 flex justify-center lg:justify-end items-center relative z-10">
+        <motion.div
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+          className="flex-1 mt-10 lg:mt-0 flex justify-center lg:justify-end items-center relative z-10"
+        >
           <div
             className="relative flex items-center justify-center select-none
                   w-[280px] h-[280px]
@@ -242,7 +335,7 @@ const Banner = () => {
               />
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
