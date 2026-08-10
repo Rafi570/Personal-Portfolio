@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Pbutton from "../share/Pbutton";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 
 // ── Types ──────────────────────────────────────────────────────────────────
 interface Project {
@@ -23,6 +23,54 @@ interface Project {
   liveLink: string;
   githubLink: string;
 }
+
+// ── Scroll-in variants (header / tabs / grid) ───────────────────────────────
+const headerVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
+const tabContainerVariants: Variants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.06,
+    },
+  },
+};
+
+const tabItemVariants: Variants = {
+  hidden: { opacity: 0, y: 12, scale: 0.9 },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.35, ease: "easeOut" },
+  },
+};
+
+const gridVariants: Variants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.08,
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 30, scale: 0.96 },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.45, ease: "easeOut" },
+  },
+};
 
 // ── Main Portfolio ─────────────────────────────────────────────────────────
 const Portfolio = () => {
@@ -75,20 +123,39 @@ const Portfolio = () => {
       <div className="max-w-[1440px] mx-auto flex flex-col items-center">
 
         {/* Header */}
-        <div className="flex flex-col items-center text-center mb-8 md:mb-10 w-full">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.6 }}
+          variants={headerVariants}
+          className="flex flex-col items-center text-center mb-8 md:mb-10 w-full"
+        >
           <h2 className="text-[28px] sm:text-[34px] md:text-[40px] font-bold text-[#1E1E1E] dark:text-white leading-none tracking-[0.03em]">
             Portfolio
           </h2>
-          <div className="w-20 h-[4px] bg-[linear-gradient(94.36deg,#FD6F00_3.1%,#E46400_94.54%)] mt-3 mb-4 rounded-full" />
-        </div>
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: 80 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="h-[4px] bg-[linear-gradient(94.36deg,#FD6F00_3.1%,#E46400_94.54%)] mt-3 mb-4 rounded-full"
+          />
+        </motion.div>
 
         {/* Filter tabs */}
-        <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-10 md:mb-14 w-full">
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.5 }}
+          variants={tabContainerVariants}
+          className="flex flex-wrap justify-center gap-3 md:gap-4 mb-10 md:mb-14 w-full"
+        >
           {categories.map((cat) => {
             const isActive = active.toLowerCase() === cat.toLowerCase();
             return (
-              <button
+              <motion.button
                 key={cat}
+                variants={tabItemVariants}
                 onClick={() => handleCategoryChange(cat)}
                 className={`
                   h-[54px] px-8 sm:px-10 rounded-[8px]
@@ -101,13 +168,20 @@ const Portfolio = () => {
                 `}
               >
                 {cat}
-              </button>
+              </motion.button>
             );
           })}
-        </div>
+        </motion.div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 w-full">
+        <motion.div
+          key={active}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.1 }}
+          variants={gridVariants}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 w-full"
+        >
           {filtered.slice(0, visibleCount).map((project) => (
             <ProjectCard
               key={project.id}
@@ -115,18 +189,24 @@ const Portfolio = () => {
               onClick={() => setSelectedProject(project)}
             />
           ))}
-        </div>
+        </motion.div>
 
         {/* Load More */}
         {filtered.length > visibleCount && (
-          <div className="mt-12 md:mt-16 w-full flex justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.8 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className="mt-12 md:mt-16 w-full flex justify-center"
+          >
             <Pbutton
               onClick={() => setVisibleCount((prev) => prev + 6)}
               className="w-full sm:w-auto px-10 font-bold"
             >
               Load More
             </Pbutton>
-          </div>
+          </motion.div>
         )}
 
         {/* Modal */}
@@ -152,7 +232,8 @@ const ProjectCard = ({ project, onClick }: { project: Project; onClick: () => vo
       : project.image || "/img/placeholder.png";
 
   return (
-    <div
+    <motion.div
+      variants={cardVariants}
       onClick={onClick}
       className="relative rounded-xl overflow-hidden cursor-pointer group bg-[#1E1E1E] border border-[#2A2A2A] transition-transform duration-300 hover:scale-[1.02]"
       style={{ aspectRatio: "4/3" }}
@@ -178,7 +259,7 @@ const ProjectCard = ({ project, onClick }: { project: Project; onClick: () => vo
           {project.category}
         </span>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -215,7 +296,7 @@ const ProjectDetailsModal = ({
   animate={{ y: 0, scale: 1, opacity: 1 }}
   exit={{ y: 40, scale: 0.98, opacity: 0 }}
   transition={{ type: "spring", damping: 30, stiffness: 260 }}
-  // ✅ দুটি className প্রোপার্টির পরিবর্তে সব ক্লাসকে একসাথে একটি মাত্র className এর ভেতর নিয়ে আসা হয়েছে
+  // ✅ দুটি className প্রোপার্টির পরিবর্তে সব ক্লাসকে একসাথে একটি মাত্র className এর ভেতর নিয়ে আসা হয়েছে
   className="relative w-full max-w-[1150px] rounded-xl shadow-2xl bg-[#0F0F11] text-white border border-[#222225] flex flex-col md:flex-row text-left overflow-y-auto md:overflow-hidden max-h-[92vh] max-md:max-h-none max-md:my-auto"
 >
         {/* Close button */}
@@ -230,7 +311,7 @@ const ProjectDetailsModal = ({
         </button>
 
         {/* ── LEFT: Image Showcase, Expanded Impact & Fixed Buttons ── */}
-        {/* ✅ মোবাইলে overflow-y-visible এবং max-h-none করা হয়েছে যেন ডান সেকশনের সাথে একসাথে স্ক্রোল হয় */}
+        {/* ✅ মোবাইলে overflow-y-visible এবং max-h-none করা হয়েছে যেন ডান সেকশনের সাথে একসাথে স্ক্রোল হয় */}
         <div className="w-full md:w-[48%] bg-[#09090B] flex flex-col border-b md:border-b-0 md:border-r border-[#222225] overflow-y-visible md:overflow-y-auto md:max-h-[92vh]">
 
           <div>
@@ -363,7 +444,7 @@ const ProjectDetailsModal = ({
         </div>
 
         {/* ── RIGHT: Info & Case Study ── */}
-        {/* ✅ মোবাইলে overflow-y-visible এবং max-h-none করা হয়েছে যেন পুরো কন্টেন্ট নিচে নিচে নেমে স্ক্রোল করা যায় */}
+        {/* ✅ মোবাইলে overflow-y-visible এবং max-h-none করা হয়েছে যেন পুরো কন্টেন্ট নিচে নিচে নেমে স্ক্রোল করা যায় */}
         <div className="w-full md:w-[52%] p-6 md:p-8 overflow-y-visible md:overflow-y-auto flex flex-col bg-[#0F0F11] md:max-h-[92vh]">
           <div className="flex-1">
             {/* Category + year */}
@@ -471,5 +552,3 @@ const ProjectDetailsModal = ({
 };
 
 export default Portfolio;
-
-// gggggg
